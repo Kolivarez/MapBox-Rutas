@@ -1,12 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { MapsApp } from './MapsApp';
 
 
-
-import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
+//@ts-ignore
+import mapboxgl from '!mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
  
-mapboxgl.accessToken = 'pk.eyJ1Ijoia29saXZhcmV6IiwiYSI6ImNsNDgyc245ajBuc2EzanFpaTUybG5hcDIifQ.LuxxEto7ZvHMujx1jZmDmQ';
+mapboxgl.accessToken = 'pk.eyJ1Ijoia29saXZhcmV6IiwiYSI6ImNsNGV0YjJzbDAwODgzYnFxcmx5c2c5bm8ifQ.tdC6TWc_YpnKuOJEHk_Wwg';
 
 
 if (!navigator.geolocation) {
@@ -16,9 +16,9 @@ if (!navigator.geolocation) {
   
 }
 
-ReactDOM.render(
+
+createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <MapsApp />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <MapsApp />
+</React.StrictMode>,
 );
